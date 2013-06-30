@@ -1,6 +1,9 @@
 # Backbone.Validator
 
+Validation framework for Backbone that allows you to set reasonable defaults (http://toddself.github.com/Backbone.Validator)
+
 ## Versions
+
 * 0.92.1 - Added `is_instance` pre-defined validator
 * 0.92.0 - Cleaned up the code a little, removed console.log statements, and changed `to_equal` to use `_.isEqual` for better comparison. Added comments for annotated source code, and started porting in tests from our internal codebase.  Matching latest Backbone version tested against.
 * 0.4.3 - IE doesn't support `Array.prototype.indexOf`, switched to `_.indexOf()`
@@ -11,9 +14,11 @@
 * 0.2.0 - Initial release
 
 ## Backbone Version
+
 This plug-in is only tested with Backbone 0.9.1.  You'll also need to make sure you're on Underscore 1.3.1.  Not that it won't work with older versions, but there's no guarantees.
 
 ## Setup
+
 This is designed to be used as a mixin with the `Backbone.Model` class prior to defining your models.
 
     _.extend(Backbone.Model.prototype, Backbone.Validator);
@@ -21,6 +26,7 @@ This is designed to be used as a mixin with the `Backbone.Model` class prior to 
 By default, `use_defaults` is set to `false`.  When you're creating your model, you can override the default setting should you want Backbone.Validator to apply the value from the `defaults` object attached to the model (should there be one).
 
 ## Defining Validators
+
 Validators are defined in the `validator` object as part of the model setup.  If the value passed in doesn't meet your criteria for a valid value, return any value.  If it does match your criteria, return nothing (`undefined`).  You may attach multiple validators to each attribute -- they will be run in the order in which they are attached.  If one of them fails, the entire validation will fail and `error` will be triggered.
 
 ```javascript
@@ -47,6 +53,7 @@ test_model.get('title');
    
    
 ## Catching errors
+
 You can catch errors and do something with them by attaching a listener to the `error` event which is triggered when the validation fails.
 
 ```javascript
@@ -70,6 +77,7 @@ test_model.get('title');
 ```
     
 ## Defaults
+
 You can have the validation framework substitute a reasonable default for an invalid option.  This is useful when bootstrapping the model from an untrusted source.
 
 ```javascript
@@ -91,6 +99,7 @@ test_model.get('title');
 ```
 
 ## Pre-Defined Validators
+
 Pre-Defined validators can be added to the list of validators for a given attribute.
 
 ```javascript
@@ -230,9 +239,11 @@ The inspiration for this comes directly (along with the `format` function) from 
 
 
 ## Copyright
+
 Backbone.Validator is copyright (c) 2012 Broadcastr.
 
 ## License
+
 Copyright (C) 2012 Broadcastr
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
